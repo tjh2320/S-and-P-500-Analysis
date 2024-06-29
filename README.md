@@ -1,1 +1,3 @@
 # S-and-P-500-Analysis
+
+The objective of this project is to conduct a comprehensive analysis of the S&P 500 stocks data to uncover meaningful insights and trends. The project will include exploratory data analysis, statistical analysis, and visualization of the data to understand the performance of different stocks and sectors over time. Additionally, predictive modeling may be used to forecast future stock prices based on historical data.
