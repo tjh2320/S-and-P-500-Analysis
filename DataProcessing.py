@@ -18,7 +18,10 @@ merged_df['Date'] = pd.to_datetime(merged_df['Date'])
 merged_df['Year'] = merged_df['Date'].dt.year
 
 # Calculate Log Return and Annual Return using transform to ensure index alignment
-merged_df['Log_Return'] = merged_df.groupby(['Symbol', 'Year'])['Adj Close'].transform(lambda x: np.log(x / x.shift(1)))
+log_returns = merged_df.groupby(['Symbol', 'Year'])['Adj Close'].transform(lambda x: np.log(x / x.shift(1)))
+log_returns = log_returns.fillna(0)  # Handle NaN values
+
+merged_df['Log_Return'] = log_returns
 merged_df['Annual_Return'] = merged_df.groupby(['Symbol', 'Year'])['Log_Return'].transform(lambda x: x.cumsum())
 
 # Debug: Check if annual returns are calculated correctly
